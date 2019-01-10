@@ -24,6 +24,7 @@ public class FrmLogin extends javax.swing.JFrame {
      * Creates new form FrmLogin
      */
     public FrmLogin() {
+    	getContentPane().setBackground(Color.PINK);
         initComponents();
     }
 
@@ -38,10 +39,11 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel1.setBackground(Color.YELLOW);
         jLabel2 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JPasswordField();
+        txtContraseata = new javax.swing.JPasswordField();
         btnAceptar = new javax.swing.JButton();
         lblNuevoUsuario = new javax.swing.JLabel();
 
@@ -49,12 +51,13 @@ public class FrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setText("Utilisateur :");// SET03 was ADD :
+        jLabel2.setText("Utilisateur");
 
-        jLabel3.setText("Mot de passe :"); // SET03 was add :
+        jLabel3.setText("Mot de passe");
 
-        btnAceptar.setForeground(new java.awt.Color(25,60, 204));/* the color of this buttun was mofied by SET03 */
-        btnAceptar.setText("Valider");
+        btnAceptar.setText("\n" + 
+        		"Accepter\n" + 
+        		"");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
@@ -62,8 +65,8 @@ public class FrmLogin extends javax.swing.JFrame {
         });
 
         lblNuevoUsuario.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
-        lblNuevoUsuario.setText(" INSCRIPTION UTILISATEUR");
-        lblNuevoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblNuevoUsuario.setText("INSCRIPTION UTILISATEUR");
+        lblNuevoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblNuevoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblNuevoUsuarioMouseClicked(evt);
@@ -85,7 +88,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblNuevoUsuario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                         .addComponent(btnAceptar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -94,7 +97,7 @@ public class FrmLogin extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtUsuario)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))))
+                            .addComponent(txtContraseata, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -107,7 +110,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtContraseata, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAceptar)
@@ -140,12 +143,12 @@ public class FrmLogin extends javax.swing.JFrame {
             // TODO add your handling code here:
             
             //conexion.conexion();
-            //conexion.consultarUsuario(txtUsuario.getText(), txtContraseña.getText());
+            //conexion.consultarUsuario(txtUsuario.getText(), txtContraseÃ±a.getText());
             
-            if((conexion.consultarUsuario(txtUsuario.getText(), txtContraseña.getText())).equals("1"))
+            if((conexion.consultarUsuario(txtUsuario.getText(), txtContraseata.getText())).equals("1"))
             {
                 FrmInicio inicio = new FrmInicio(conexion.consultarCodigoUsuario(txtUsuario.getText(), 
-                        txtContraseña.getText()));
+                        txtContraseata.getText()));
                 inicio.show();
                 this.hide();
                 conexion.cerrarConexion();
@@ -221,7 +224,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNuevoUsuario;
-    private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JPasswordField txtContraseata;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
